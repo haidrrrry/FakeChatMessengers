@@ -1,14 +1,19 @@
 package com.codecue.fakechatmessengers.activities
 
 import android.app.Activity
+import android.app.ProgressDialog
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.widget.Toast
 import com.codecue.fakechatmessengers.activities.FakeChatActivities.ChatListActivity
 import com.codecue.fakechatmessengers.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
+    var progressDialog: ProgressDialog? = null
     private  lateinit var binding:ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +30,25 @@ class HomeActivity : AppCompatActivity() {
             startActivity(i)
         }
         binding.contactushome.setOnClickListener{
-            Toast.makeText(this, "Click on Contact Us!!", Toast.LENGTH_LONG).show()
+
+
+
+            try {
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://codecue.solutions/")
+                )
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+            } catch (e: ActivityNotFoundException) {
+
+                // youtube is not installed.Will be opened in other available apps
+                val i = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://codecue.solutions/")
+                )
+                startActivity(i)
+            }
         }
         binding.policyprivacyHome.setOnClickListener{
             Toast.makeText(this, "Click on Policy Privacy Us!!", Toast.LENGTH_LONG).show()
@@ -35,6 +58,59 @@ class HomeActivity : AppCompatActivity() {
         }
         binding.getpremiumaccessBtn.setOnClickListener{
             Toast.makeText(this, "Check Premium Version", Toast.LENGTH_LONG).show()
+        }
+        binding.instagrambtn.setOnClickListener {
+
+            val uri = Uri.parse("https://www.instagram.com/codecue_/")
+            val likeIng = Intent(Intent.ACTION_VIEW, uri)
+            likeIng.setPackage("com.instagram.android")
+            try {
+                startActivity(likeIng)
+            } catch (e: ActivityNotFoundException) {
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://www.instagram.com/codecue_/")
+                    )
+                )
+            }
+        }
+        binding.youtubebtn.setOnClickListener {
+            try {
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.youtube.com/@codecue217")
+                )
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+            } catch (e: ActivityNotFoundException) {
+
+                // youtube is not installed.Will be opened in other available apps
+                val i = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.youtube.com/@codecue217")
+                )
+                startActivity(i)
+            }
+        }
+        binding.linkedbtn.setOnClickListener {
+
+            try {
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.linkedin.com/in/khanzada-saleem-khan-2501b8123")
+                )
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+            } catch (e: ActivityNotFoundException) {
+
+                // youtube is not installed.Will be opened in other available apps
+                val i = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.linkedin.com/in/khanzada-saleem-khan-2501b8123")
+                )
+                startActivity(i)
+            }
         }
     }
 }

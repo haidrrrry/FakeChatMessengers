@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">FakeChatMessengers</string>
     <string name="messanger_fake_chat">Messanger Fake Chat</string>
+    <string name="ContactUS">Contact Us</string>
 </resources>
