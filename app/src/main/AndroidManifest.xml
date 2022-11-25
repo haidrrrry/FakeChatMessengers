@@ -13,6 +13,9 @@
         android:theme="@style/Theme.FakeChatMessengers"
         tools:targetApi="31">
         <activity
+            android:name=".activities.FakeChatActivities.ChatScreen"
+            android:exported="false" />
+        <activity
             android:name=".activities.FakeChatActivities.ChatListActivity"
             android:exported="false">
             <meta-data
