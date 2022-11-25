@@ -2,4 +2,16 @@
     <string name="app_name">FakeChatMessengers</string>
     <string name="messanger_fake_chat">Messanger Fake Chat</string>
     <string name="ContactUS">Contact Us</string>
+
+
+    <string name="no_not_really">No, not really</string>
+    <string name="get_premium">Get Premium</string>
+    <string name="no_ads">No Ads</string>
+    <string name="increase_connection_spreed">Increased connection speed</string>
+    <string name="premium_vertical_location">Premium Servers</string>
+    <string name="make_sure_to_restart_the_app_after_a_purchase">Make Sure To Restart The App After A Purchase</string>
+    <string name="subscription_notices">You can cancel subscription or free trial any time by canceling your subscription thought google account setting, or it will automatically renew.
+        This Must be done 24 hours before the end of the current period</string>
+    <string name="you_are_already_subscribed">You Are Already Subscribed</string>
+    <string name="billunavaliable">BILLING UNAVAILABLE</string>
 </resources>

@@ -1,14 +1,13 @@
 package com.codecue.fakechatmessengers.activities
 
-import android.app.Activity
 import android.app.ProgressDialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.codecue.fakechatmessengers.BuildConfig
 import com.codecue.fakechatmessengers.activities.FakeChatActivities.ChatListActivity
 import com.codecue.fakechatmessengers.databinding.ActivityHomeBinding
 
@@ -51,10 +50,40 @@ class HomeActivity : AppCompatActivity() {
             }
         }
         binding.policyprivacyHome.setOnClickListener{
-            Toast.makeText(this, "Click on Policy Privacy Us!!", Toast.LENGTH_LONG).show()
+            try {
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://pages.flycricket.io/prank-chat/privacy.html")
+                )
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+            } catch (e: ActivityNotFoundException) {
+
+                // youtube is not installed.Will be opened in other available apps
+                val i = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://pages.flycricket.io/prank-chat/privacy.html")
+                )
+                startActivity(i)
+            }
         }
         binding.Sharebtnlinearlayout.setOnClickListener{
-            Toast.makeText(this, "Click on  Share Btn", Toast.LENGTH_LONG).show()
+            try {
+                val shareIntent = Intent(Intent.ACTION_SEND)
+                shareIntent.type = "text/plain"
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My application name")
+                var shareMessage = "\nLet me recommend you this application\n\n"
+                shareMessage =
+                    """
+                ${shareMessage}https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}
+                
+                
+                """.trimIndent()
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
+                startActivity(Intent.createChooser(shareIntent, "choose one"))
+            } catch (e: Exception) {
+                //e.toString();
+            }
         }
         binding.getpremiumaccessBtn.setOnClickListener{
             Toast.makeText(this, "Check Premium Version", Toast.LENGTH_LONG).show()
