@@ -7,42 +7,43 @@
     android:layout_height="match_parent"
     tools:context=".activities.HomeActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="24dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/back_btn_svg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:padding="24dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:src="@drawable/back_btn_svg"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
         android:id="@+id/textView"
+        style="@style/simpletextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:text="@string/messanger_fake_chat"
         android:textColor="@color/blue"
-        style="@style/simpletextview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.391"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.542"
+
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="4dp"
         android:text="Powered by CodeCue"
         android:textColor="#D2D1D1"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.38"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ScrollView
@@ -122,7 +123,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_medium"
-                        android:text="Contact Us"
+                        android:text="About Us"
                         android:textColor="@color/lightblue_green" />
 
                 </LinearLayout>
@@ -210,13 +211,73 @@ Try our Premium features."
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
-    <androidx.appcompat.widget.AppCompatButton
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+
+                <ImageView
+                    android:id="@+id/instagrambtn"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+
+                    android:layout_weight="1"
+                    android:src="@drawable/instagram"
+
+                    />
+
+
+                <ImageView
+                    android:id="@+id/linkedbtn"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+
+                    android:layout_weight="1"
+                    android:src="@drawable/linkedin" />
+
+                <ImageView
+                    android:id="@+id/youtubebtn"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/youtube"
+
+                    />
+
+
+            </LinearLayout>
+
+            <TextView
+
+                android:id="@+id/textView5"
+                style="@style/simpletextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ContactUS"
+android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/getpremiumaccess_btn" />
+
+            <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="16dp"
         android:id="@+id/getpremiumaccess_btn"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
         android:textColor="@color/white"
 
         android:text="Get Premium Access"
@@ -224,6 +285,8 @@ Try our Premium features."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
