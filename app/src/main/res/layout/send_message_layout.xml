@@ -5,17 +5,28 @@
     android:layout_height="wrap_content"
     android:gravity="center_vertical|end"
     android:orientation="horizontal"
-    android:padding="5dp">
+    android:layout_marginStart="1dp"
+    android:padding="3dp">
 
     <TextView
-        android:id="@+id/textView62"
+        android:id="@+id/message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/send_message_layout"
         android:maxWidth="250dp"
         android:textSize="16sp"
         android:textColor="@color/white"
-        android:padding="6dp"
-        android:text="It’s morning in Tokyo 😎" />
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="7dp"
+        android:text="It’s morning in Tokyo " />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImageRecLayout1"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:scaleType="centerCrop"
+        android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:src="@drawable/img" />
 
 </LinearLayout>

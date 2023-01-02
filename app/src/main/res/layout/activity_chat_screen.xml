@@ -5,7 +5,7 @@
     android:id="@+id/drawer_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.FakeChatActivities.ChatScreen">
+    tools:context=".activities.ChatScreen">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
@@ -20,24 +20,40 @@
         <ImageView
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:padding="20dp"
             android:src="@drawable/icon_arrow_black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/messenger_Blue" />
 
         <!--Profile Picture        -->
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circleImageView3"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:id="@+id/chatProfileImage"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginStart="2dp"
             android:scaleType="centerCrop"
             android:src="@drawable/sayyan_dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/backButton"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleGreen"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="21dp"
+            android:elevation="1dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/green_circle"
+            android:tint="#4CBB17"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="1dp"
+            app:layout_constraintBottom_toBottomOf="@+id/chatProfileImage"
+            app:layout_constraintEnd_toEndOf="@+id/chatProfileImage"
+            app:layout_constraintTop_toTopOf="@+id/chatProfileImage" />
 
         <!--Name And Status        -->
         <LinearLayout
@@ -50,11 +66,11 @@
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/linearLayout5"
-            app:layout_constraintStart_toEndOf="@+id/circleImageView3"
+            app:layout_constraintStart_toEndOf="@+id/chatProfileImage"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textView152"
+                android:id="@+id/chatName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -69,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Active Now"
+                android:text="@string/active_now"
                 android:textSize="11sp" />
         </LinearLayout>
 
@@ -89,38 +105,55 @@
                 android:id="@+id/audioCall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:padding="10dp"
+                android:layout_gravity="center"
                 android:src="@drawable/icon_phone_black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/messenger_Blue" />
 
             <ImageView
                 android:id="@+id/videoCall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:padding="10dp"
+                android:layout_gravity="center"
                 android:src="@drawable/icon_video_black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/messenger_Blue" />
+
+            <ImageView
+                android:id="@+id/info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_info_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/messenger_Blue" />
 
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--Chats RecyclerView    -->
+    <!--User RecyclerView    -->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/messagesRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        tools:listitem="@layout/receive_messages_layout"
         app:layout_constraintBottom_toTopOf="@+id/BottomLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
 
-<!--Bottom Layout    -->
+    <!--Bottom Layout    -->
 
     <LinearLayout
         android:id="@+id/BottomLayout"
@@ -136,34 +169,38 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="12dp"
             android:src="@drawable/ic_baseline_camera_alt_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/messenger_Blue" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="12dp"
             android:src="@drawable/icon_image_black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/messenger_Blue" />
 
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="12dp"
             android:src="@drawable/icon_mic_black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/messenger_Blue" />
 
         <!--Chat Edittext-->
 
         <EditText
+            android:id="@+id/messageTV"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -175,6 +212,7 @@
             android:background="@drawable/searchbar_bg"
             android:ems="10"
             android:hint="Aa"
+            android:importantForAutofill="yes"
             android:inputType="textMultiLine"
             android:maxLines="5"
             android:paddingStart="10dp"
@@ -184,14 +222,16 @@
 
 
         <ImageView
+            android:id="@+id/buttonSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:padding="10dp"
+            android:padding="12dp"
             android:src="@drawable/icon_send_black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/messenger_Blue" />
 
     </LinearLayout>
 

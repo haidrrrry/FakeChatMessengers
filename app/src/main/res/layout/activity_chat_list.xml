@@ -4,7 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.FakeChatActivities.ChatListActivity">
+    tools:context=".activities.ChatListActivity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/FAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/messenger_Blue"
+        android:contentDescription="AddNewChat"
+        android:src="@android:drawable/ic_input_add"
+        app:layout_constraintBottom_toBottomOf="@+id/chatRecyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
@@ -16,31 +32,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/userProfilePicture"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_margin="16dp"
-            android:layout_marginStart="8dp"
-            android:src="@drawable/img"
+
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageView"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="2dp"
+                android:src="@drawable/img" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="4dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/chats"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/editButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="8dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="@string/chats"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="22sp"
+            android:gravity="end"
+            android:padding="10dp"
+            android:layout_marginStart="2dp"
+            android:src="@drawable/icon_edit"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/userProfilePicture"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.511" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/cameraButton"
@@ -50,15 +83,15 @@
             android:padding="10dp"
             android:src="@drawable/icon_camera_black"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editButton"
             app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <EditText
-        android:id="@+id/searchChatScreen"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchChats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16sp"
@@ -68,14 +101,16 @@
         android:background="@drawable/searchbar_bg"
         android:drawableStart="@drawable/search_icon"
         android:drawablePadding="10dp"
-        android:hint="@string/search"
         android:inputType="text"
         android:minHeight="48dp"
-        android:padding="10dp"
-        android:paddingVertical="10dp"
+        android:paddingVertical="1.5dp"
+        app:iconifiedByDefault="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:queryHint="Search">
+
+    </androidx.appcompat.widget.SearchView>
 
 
     <TextView
@@ -90,7 +125,7 @@
         android:textSize="12sp"
         app:drawableTopCompat="@drawable/add"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchChatScreen" />
+        app:layout_constraintTop_toBottomOf="@+id/searchChats" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/storiesRecyclerView"
@@ -99,14 +134,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/searchChatScreen"
+        app:layout_constraintEnd_toEndOf="@+id/searchChats"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/searchChatScreen"
+        app:layout_constraintTop_toBottomOf="@+id/searchChats"
         tools:itemCount="1"
         tools:listitem="@layout/stories_item_view" />
 
     <!--CHAT Recycler View-->
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRecyclerView"
@@ -116,55 +150,56 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/bottomlinearlayout"
+        app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/storiesRecyclerView"
-        tools:itemCount="15"
+
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:listitem="@layout/chats_items_view" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvListEmpty"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bottomlinearlayout"
-        tools:listitem="@layout/layout_people_list" />
+        app:layout_constraintTop_toBottomOf="@+id/storiesRecyclerView" />
+
 
     <LinearLayout
+        android:id="@+id/bottomLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/bottomlinearlayout"
-        android:padding="10dp"
-        android:gravity="center"
         android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingVertical="10dp"
+        android:weightSum="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:weightSum="3"
-        >
+        app:layout_constraintStart_toStartOf="parent">
+
         <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:id="@+id/addChat"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/message_icon_svg"
-            />
+            android:src="@drawable/message_icon_svg" />
+
         <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="24dp"
-            android:src="@drawable/people_svg"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            />
+            android:src="@drawable/people_svg" />
+
         <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/compass_svg"
-            />
+            android:src="@drawable/compass_svg" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

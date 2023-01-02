@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.codecue.fakechatmessengers.BuildConfig
-import com.codecue.fakechatmessengers.activities.FakeChatActivities.ChatListActivity
+import com.codecue.fakechatmessengers.DatabaseHelper
 import com.codecue.fakechatmessengers.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -21,16 +21,16 @@ class HomeActivity : AppCompatActivity() {
 
         setOnClickListners()
 
+        
+
     }
 
     private fun setOnClickListners() {
         binding.fakechathome.setOnClickListener{
-            val i=Intent(this,ChatListActivity::class.java)
+            val i=Intent(this, ChatListActivity::class.java)
             startActivity(i)
         }
         binding.contactushome.setOnClickListener{
-
-
 
             try {
                 val intent = Intent(

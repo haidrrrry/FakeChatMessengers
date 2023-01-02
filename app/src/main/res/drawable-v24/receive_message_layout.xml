@@ -3,10 +3,10 @@
 
     <corners
         android:topLeftRadius="16dp"
-        android:topRightRadius="6dp"
+        android:topRightRadius="16dp"
         android:bottomRightRadius="16dp"
-        android:bottomLeftRadius="16dp"
+        android:bottomLeftRadius="6dp"
         />
 
-    <solid android:color="@color/messenger_Blue"/>
+    <solid android:color="#99D3D3D3"/>
 </shape>

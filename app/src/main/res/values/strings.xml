@@ -17,4 +17,13 @@
     <string name="your_story">Your Story</string>
     <string name="chats">Chats</string>
     <string name="search">Search</string>
+    <string name="active_now">Active now</string>
+    <string name="choose_image">Choose Image</string>
+    <string name="send">Send</string>
+    <string name="receive">Receive</string>
+    <string name="delete">Delete</string>
+    <string name="seen">Seen</string>
+    <string name="clear_chat">Clear Chat</string>
+    <string name="delete_chat">Delete Chat</string>
+    <string name="save">Save</string>
 </resources>
