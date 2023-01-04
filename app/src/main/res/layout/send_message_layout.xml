@@ -15,6 +15,7 @@
         android:background="@drawable/send_message_layout"
         android:maxWidth="250dp"
         android:textSize="16sp"
+        android:layout_marginEnd="12dp"
         android:textColor="@color/white"
         android:paddingHorizontal="8dp"
         android:paddingVertical="7dp"

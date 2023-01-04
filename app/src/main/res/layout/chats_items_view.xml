@@ -35,9 +35,9 @@
             android:layout_marginTop="31dp"
             android:elevation="1dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/green"
-            android:background="@android:color/transparent"
-            app:civ_border_color="@color/white"
+            android:tint="#4CBB17"
+            android:src="@drawable/green_circle"
+            app:civ_border_color="@color/reverse"
             app:civ_border_width="2dp"
             app:layout_constraintBottom_toBottomOf="@+id/profileImage"
             app:layout_constraintEnd_toEndOf="@+id/profileImage"
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
                 android:text="Elon Musk"
-                android:textColor="#282828"
+                android:textColor="@color/black_in_light_and_white_in_dark"
                 android:textSize="16sp"
                 android:textStyle="bold"
 
@@ -89,7 +89,7 @@
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:text="Hey! why are you so cute  "
-                    android:textColor="#383838"
+                    android:textColor="@color/last_message"
                     android:textSize="14sp"
 
                     />
@@ -101,6 +101,7 @@
                     android:layout_marginStart="6dp"
                     android:ellipsize="start"
                     android:text="12:16"
+                    android:maxLength="10"
                     android:textSize="11sp"
 
                     />

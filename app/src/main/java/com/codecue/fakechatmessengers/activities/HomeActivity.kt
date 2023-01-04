@@ -26,11 +26,11 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setOnClickListners() {
-        binding.fakechathome.setOnClickListener{
+        binding.FakeChat.setOnClickListener{
             val i=Intent(this, ChatListActivity::class.java)
             startActivity(i)
         }
-        binding.contactushome.setOnClickListener{
+        binding.contactUs.setOnClickListener{
 
             try {
                 val intent = Intent(
@@ -49,7 +49,7 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(i)
             }
         }
-        binding.policyprivacyHome.setOnClickListener{
+        binding.PrivacyPolicy.setOnClickListener{
             try {
                 val intent = Intent(
                     Intent.ACTION_VIEW,
@@ -67,7 +67,7 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(i)
             }
         }
-        binding.Sharebtnlinearlayout.setOnClickListener{
+        binding.Share.setOnClickListener{
             try {
                 val shareIntent = Intent(Intent.ACTION_SEND)
                 shareIntent.type = "text/plain"
@@ -85,10 +85,10 @@ class HomeActivity : AppCompatActivity() {
                 //e.toString();
             }
         }
-        binding.getpremiumaccessBtn.setOnClickListener{
+        binding.getPremiumAccessButton.setOnClickListener{
             Toast.makeText(this, "Check Premium Version", Toast.LENGTH_LONG).show()
         }
-        binding.instagrambtn.setOnClickListener {
+        binding.contactUsInstagram.setOnClickListener {
 
             val uri = Uri.parse("https://www.instagram.com/codecue_/")
             val likeIng = Intent(Intent.ACTION_VIEW, uri)
@@ -104,11 +104,11 @@ class HomeActivity : AppCompatActivity() {
                 )
             }
         }
-        binding.youtubebtn.setOnClickListener {
+        binding.contactUsFacebook.setOnClickListener {
             try {
                 val intent = Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://www.youtube.com/@codecue217")
+                    Uri.parse("https://www.facebook.com/codecue.solutions/")
                 )
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)
@@ -117,12 +117,12 @@ class HomeActivity : AppCompatActivity() {
                 // youtube is not installed.Will be opened in other available apps
                 val i = Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://www.youtube.com/@codecue217")
+                    Uri.parse("https://www.facebook.com/codecue.solutions/")
                 )
                 startActivity(i)
             }
         }
-        binding.linkedbtn.setOnClickListener {
+        binding.contactUsLinkedIn.setOnClickListener {
 
             try {
                 val intent = Intent(

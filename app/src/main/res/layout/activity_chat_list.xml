@@ -46,8 +46,10 @@
                 android:id="@+id/circleImageView"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
+                app:civ_border_color="@color/reverse"
+                app:civ_border_width="1dp"
                 android:layout_marginStart="2dp"
-                android:src="@drawable/img" />
+                android:src="@drawable/user_avatar_filled" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -56,7 +58,7 @@
                 android:layout_marginStart="4dp"
                 android:fontFamily="sans-serif-condensed"
                 android:text="@string/chats"
-                android:textColor="@color/black"
+                android:textColor="@color/black_in_light_and_white_in_dark"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -121,7 +123,7 @@
         android:layout_marginTop="8dp"
         android:padding="10dp"
         android:text="@string/your_story"
-        android:textColor="@color/black"
+        android:textColor="@color/black_in_light_and_white_in_dark"
         android:textSize="12sp"
         app:drawableTopCompat="@drawable/add"
         app:layout_constraintStart_toStartOf="parent"

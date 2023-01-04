@@ -7,290 +7,234 @@
     android:layout_height="match_parent"
     tools:context=".activities.HomeActivity">
 
-<!--    <ImageView-->
-<!--        android:id="@+id/imageView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:padding="24dp"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:src="@drawable/back_btn_svg"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+        <ImageView
+            android:contentDescription="@string/back_button"
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:src="@drawable/back_arrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="@string/messenger_fake_chat"
+            android:textAlignment="center"
+            android:textColor="@color/newMainColor"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--    SCROLL VIEW-->
 
     <TextView
-        android:id="@+id/textView"
-        style="@style/simpletextview"
+        android:id="@+id/tvPowered"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/messanger_fake_chat"
-        android:textColor="@color/blue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginTop="4dp"
-        android:text="Powered by CodeCue"
+        android:layout_weight="1"
+        android:text="@string/powered_by_codecue"
+        android:textAlignment="center"
         android:textColor="#D2D1D1"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAppName" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
         android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        >
-        <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toBottomOf="@+id/tvPowered">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            >
-
-
+            <!--  Fake Chat & Contact Us-->
             <LinearLayout
-                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="33dp"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                android:baselineAligned="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_gravity="center"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp">
 
-                <LinearLayout
-                    android:id="@+id/fakechathome"
-                    android:layout_width="150dp"
+                <ImageView
+                    android:id="@+id/FakeChat"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_weight="1"
-                    android:background="@drawable/padding_10dp"
-                    android:backgroundTint="#1A00A3FF"
-                    android:clickable="true"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:src="@drawable/home_fake_chat" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:src="@drawable/icon_home_fakechat_svg" />
-
-                    <TextView
-                        style="@style/simpletextview"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_medium"
-                        android:text="Fake Chat" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/contactushome"
-                    android:layout_width="150dp"
+                <ImageView
+                    android:id="@+id/contactUs"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
                     android:layout_weight="1"
-                    android:background="@drawable/padding_10dp"
-                    android:backgroundTint="#1A53D1C5"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:src="@drawable/home_contactus_svg" />
-
-                    <TextView
-                        style="@style/simpletextview"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_medium"
-                        android:text="About Us"
-                        android:textColor="@color/lightblue_green" />
-
-                </LinearLayout>
-            </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <LinearLayout
-            android:id="@+id/policyprivacy_home"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_weight="1"
-            android:background="@drawable/padding_10dp"
-            android:backgroundTint="#1AEE9595"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-
-                android:src="@drawable/policyprivacy_svg_home" />
-
-            <TextView
-                style="@style/simpletextview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_medium"
-                android:text="Privacy Policy"
-                android:textSize="16sp"
-                android:maxLines="1"
-                android:textColor="#E95656" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/Sharebtnlinearlayout"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_weight="1"
-            android:background="@drawable/padding_10dp"
-            android:backgroundTint="#1ABA68C8"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:src="@drawable/share_icon_svg_home" />
-
-            <TextView
-                style="@style/simpletextview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_medium"
-                android:text="Share"
-                android:textColor="#BA68C8" />
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:gravity="center"
-        android:paddingStart="42dp"
-        android:paddingEnd="42dp"
-        android:text="Getting bored of ads,Don’t want to see ads.\n
-Try our Premium features."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-            <LinearLayout
-                android:id="@+id/linearLayout3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:weightSum="3"
-                android:layout_marginTop="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5">
-
-
-                <ImageView
-                    android:id="@+id/instagrambtn"
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
-
-                    android:layout_weight="1"
-                    android:src="@drawable/instagram"
-
-                    />
-
-
-                <ImageView
-                    android:id="@+id/linkedbtn"
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
-
-                    android:layout_weight="1"
-                    android:src="@drawable/linkedin" />
-
-                <ImageView
-                    android:id="@+id/youtubebtn"
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/youtube"
-
-                    />
-
+                    android:src="@drawable/home_contact_us" />
 
             </LinearLayout>
 
-            <TextView
+            <!--  Privacy Policy & Share-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="24dp">
 
-                android:id="@+id/textView5"
-                style="@style/simpletextview"
+                <ImageView
+                    android:id="@+id/PrivacyPolicy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/home_privacy_policy" />
+
+                <ImageView
+                    android:id="@+id/Share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/home_share" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvGetPremium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ContactUS"
-android:layout_marginStart="16dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
                 android:layout_marginTop="16dp"
-                android:textColor="@color/blue"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/getpremiumaccess_btn" />
+                android:text="@string/getting_bored_of_ads"
+                android:textAlignment="center"
+                android:textColor="@color/textGrey"
+                android:textSize="14sp" />
 
+            <!--  Button Get Premium Access-->
             <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="16dp"
-        android:id="@+id/getpremiumaccess_btn"
-        android:layout_marginEnd="16dp"
-        android:textColor="@color/white"
+                android:id="@+id/getPremiumAccessButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/blue_btn_gredinet_padding_10dp"
+                android:text="@string/get_premium_access"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-        android:text="Get Premium Access"
-        android:background="@drawable/blue_btn_gredinet_padding_10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            <TextView
+                android:id="@+id/tvContactUs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="32dp"
+                android:text="@string/ContactUS"
+                android:textAlignment="center"
+                android:textColor="@color/newMainColor"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <!--   Contact Us Social Media-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp">
+
+                <ImageView
+                    android:id="@+id/contactUsInstagram"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/contact_us_instagram" />
+
+                <ImageView
+                    android:id="@+id/contactUsFacebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/contact_us_facebook" />
+
+                <ImageView
+                    android:id="@+id/contactUsLinkedIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/contact_us_linkedin" />
+
+            </LinearLayout>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tvDevelopers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="48dp"
+                android:text="@string/designed_and_developed_by"
+                android:textAlignment="center"
+                android:textColor="@color/black_in_light_and_white_in_dark"
+                android:textSize="11sp" />
+            <!--    CodeCue Logo-->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/codecue_logo" />
 
+            <!--    Version-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="24dp">
+
+                <TextView
+                    android:id="@+id/tvVersionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="3dp"
+                    android:text="@string/v"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvVersionValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/version"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
