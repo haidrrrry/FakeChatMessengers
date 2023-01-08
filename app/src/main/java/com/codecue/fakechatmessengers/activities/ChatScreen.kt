@@ -89,7 +89,7 @@ class ChatScreen : AppCompatActivity() {
     private fun getIntentExtrasAndBindWithViews() {
         try {
             val id = intent.getLongExtra("idKey", 0)
-            Toast.makeText(this, id.toString(), Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, id.toString(), Toast.LENGTH_SHORT).show()
             val name = intent.getStringExtra("nameKey")
             binding.chatName.text = name
 
