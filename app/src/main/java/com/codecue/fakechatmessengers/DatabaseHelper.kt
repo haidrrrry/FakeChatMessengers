@@ -6,6 +6,8 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 
 
 class DatabaseHelper(context: Context) :
@@ -16,13 +18,15 @@ class DatabaseHelper(context: Context) :
         db.execSQL(createChatsTable)
         db.execSQL(createMessagesTable)
         db.execSQL(createUserImageTable)
+
+
         //onCreate(db)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         db.execSQL("DROP TABLE IF EXISTS $tableChats")
         db.execSQL("DROP TABLE IF EXISTS $tableMessages")
-        db.execSQL("DROP TABLE IF EXISTS $createUserImageTable")
+        db.execSQL("DROP TABLE IF EXISTS $tableUserImage")
         onCreate(db)
     }
 
@@ -43,9 +47,10 @@ class DatabaseHelper(context: Context) :
             + messageUniqueID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + createdAT_MSG + " TEXT NOT NULL)")
 
-    private var createUserImageTable  = ("CREATE TABLE " + tableUserImage + "( "
-            + imageID + "INTEGER ,"
-            + Image_COL + "BLOB NOT NULL) ")
+    private var createUserImageTable  = ("CREATE TABLE " + tableUserImage + " ("
+            + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + profileImage + " BLOB NOT NULL)")
+
 
 
     //
@@ -53,7 +58,7 @@ class DatabaseHelper(context: Context) :
     companion object {
 
         // If you change the database schema, you must increment the database version.
-        const val DATABASE_VERSION = 1
+        const val DATABASE_VERSION = 7
         const val DATABASE_NAME = "FakeChat.db"
         const val tableChats = "Chats_Table"
         const val ID = "ID"
@@ -93,6 +98,41 @@ class DatabaseHelper(context: Context) :
 
         return id > 0    // If < 0 No data inserted
     }
+
+    /** Image **/
+    @Throws(SQLiteException::class)
+    fun insertUserImage (image: ByteArray): Boolean {
+
+        val database = this.writableDatabase
+
+        val contentValues = ContentValues()
+        contentValues.put(Image_COL, image)
+
+        val id : Long = database.insert(tableUserImage, null, contentValues)
+        database.close()
+
+        return id > 0    // If < 0 No data inserted
+    }
+
+
+    /** Get Image **/
+
+    fun getImage(): Bitmap? {
+
+        val qu = "SELECT * FROM $tableUserImage"
+        val database = this.readableDatabase
+        val cur: Cursor = database.rawQuery(qu, null)
+        if (cur.moveToLast()) {
+            val imgByte = cur.getBlob(cur.getColumnIndexOrThrow("Image"))
+            cur.close()
+            return BitmapFactory.decodeByteArray(imgByte, 0, imgByte.size)
+        }
+        if (!cur.isClosed) {
+            cur.close()
+        }
+        return null
+    }
+
 
     /** FUN: Get All Chats **/
 

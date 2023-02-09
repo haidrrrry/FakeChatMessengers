@@ -45,31 +45,6 @@ class ChatListAdapter (val context: ChatListActivity): RecyclerView.Adapter<Chat
             context.startActivity(intent)
         }
 
-        ////
-
-//        holder.itemView.setOnLongClickListener(OnLongClickListener {
-//            val chat: Chat = chatList[position]
-//            val id = chat.id
-//            val popupMenu  = PopupMenu(context, holder.itemView)
-//            popupMenu.menuInflater.inflate(R.menu.item_view_long_click_menu, popupMenu.menu)
-//            popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
-//
-//                when (item.itemId) {
-//
-//                    R.id.longClickDelete -> databaseHelper.deleteChat(id)
-//
-//
-//                    R.id.longClickSeen -> holder.imageSeen.setImageDrawable(context.getDrawable(R.drawable.seen))
-//
-//                }
-//                true
-//            })
-//            popupMenu.show()
-//
-//            // Long Click
-//            false
-//        })
-
 
 
     }

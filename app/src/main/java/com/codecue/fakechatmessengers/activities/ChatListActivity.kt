@@ -2,13 +2,13 @@ package com.codecue.fakechatmessengers.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore.Images.Media.insertImage
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.codecue.fakechatmessengers.DatabaseHelper
-import com.codecue.fakechatmessengers.ChatListAdapter
-import com.codecue.fakechatmessengers.StoriesAdapter
+import com.codecue.fakechatmessengers.*
 import com.codecue.fakechatmessengers.databinding.ActivityChatListBinding
 
 
@@ -27,10 +27,20 @@ class ChatListActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
+        setImage()
         initRecyclerView()
         getAllChats()
         setOnClickListeners()
+
+    }
+
+
+
+    private fun setImage() {
+
+        databaseHelper = DatabaseHelper(this)
+        val c = databaseHelper.getImage()
+        binding.circleImageView.setImageBitmap(c)
     }
 
     /** Get Chats And Update When New Chat is Added **/
